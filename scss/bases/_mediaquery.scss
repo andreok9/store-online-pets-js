@@ -1,10 +1,5 @@
 @import "./variables";
 
-@media screen and (max-width: 1300px) {
-    .information-store {
-        width: 95vw;
-    }
-}
 
 @media screen and (max-width: 627px) {
     #topbar {
@@ -16,28 +11,16 @@
 }
 
 @media (max-width: 768px) {
-    .nosotros {
-        padding: 10px 0;
-    }
+    .products-container {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
 
-    .nosotros h2 {
-        font-size: 1.5em;
-    }
-
-    .nosotros p {
-        font-size: 1em;
-    }
-}
-
-.products-container {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 
@@ -67,11 +50,6 @@ p {
         padding: 10px;
     }
 
-    .sucursal {
-        iframe {
-            height: 300px;
-        }
-    }
 }
 
 @media (max-width: 600px) {
