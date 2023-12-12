@@ -1,0 +1,96 @@
+@import "./variables";
+
+@media screen and (max-width: 1300px) {
+    .information-store {
+        width: 95vw;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    #topbar {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .nosotros {
+        padding: 10px 0;
+    }
+
+    .nosotros h2 {
+        font-size: 1.5em;
+    }
+
+    .nosotros p {
+        font-size: 1em;
+    }
+}
+
+.products-container {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+h2 {
+    margin: 15px 15px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: $titulo_secundario;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
+}
+
+p {
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    section {
+        padding: 10px;
+    }
+
+    .sucursal {
+        iframe {
+            height: 300px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .card-category {
+        height: auto;
+    }
+
+    .container-products {
+        grid-template-columns: 1fr;
+    }
+
+    .container-proms {
+        flex-direction: column;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}

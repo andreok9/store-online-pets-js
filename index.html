@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/mascota.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <title>Tienda Online de Mascotas Tommy - Productos y Servicios para Mascotas</title>
+    <meta name="description"
+        content="Tienda Online de Mascotas Tommy: Productos y servicios para mascotas en un solo lugar.">
+    <meta name="keywords"
+        content="Tienda de mascotas, productos para mascotas, cuidado de animales, alimentos para mascotas">
+    <meta name="author" content="Tommy">
+    <meta name="robots" content="index, follow">
+
+</head>
+
+<body>
+    <header>
+        <p class="btn-warning d-flex justify-content-center text-dark mb-0 p-2 fs-5" id="cupon">¡Completá tus datos y
+            recibí tu
+            cupón de 15% OFF en tu primera compra!</p>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-purple">
+            <a class="navbar-brand text-logo" href="./index.html">
+                <img src="./img/mascota.png" alt="logo" width="35" height="30" class="d-inline-block align-text-top">
+                Tommy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Contacto</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="email" placeholder="email" aria-label="email">
+                    <button class="btn btn-outline-info" type="button">Suscribete</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="./img/perro-gato.jpg" class="d-block w-100" alt="fondo-mascota">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/diferencias-perros-gatos.jpg" class="d-block w-100" alt="accesorios-mascotas">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/coverjuguetes.jpg" class="d-block w-100" alt="retrato-perros">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="topbar">
+                <div class="information-store">
+                    <img src="./img/coche.png" alt="img-coche">
+                    <h3>Envío gratis con la compra +$10000</h3>
+                </div>
+                <div class="information-store">
+                    <img src="./img/tarjeta-de-credito.png" alt="img-tarjeta">
+                    <h3>Promociones bancarias</h3>
+                </div>
+                <div class="information-store">
+                    <img src="./img/store.png" alt="img-promo">
+                    <h3>Retiro gratuito por sucursal</h3>
+                </div>
+                <div class="information-store">
+                    <img src="./img/oferta.png" alt="img-retiro">
+                    <h3>Beneficios únicos</h3>
+                </div>
+            </div>
+        </section>
+        <section class="container inf-categories">
+            <h2>Favoritos de tu mascota</h2>
+            <div class="container-categories">
+                <div class="card-category category-mes">
+                    <p>Ofertas del Mes</p>
+                    <span>Ver más</span>
+                </div>
+                <div class="card-category category-alimento-perro">
+                    <p>Alimento para Perro</p>
+                    <span>Ver más</span>
+                </div>
+                <div class="card-category category-alimento-gato">
+                    <p>Alimento para Gato</p>
+                    <span>Ver más</span>
+                </div>
+        </section>
+        <section class="container section-products">
+            <h2>Mejores Productos</h2>
+            <div class="container-proms">
+                <span class="active">Destacados</span>
+                <span>Más vendidos</span>
+                <span>¡Las mejores Promociones!</span>
+            </div>
+            <div class="container-products">
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="./img/alimentoclubperformance.jpg" alt="Alimento Club Performance">
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Alimento Club Performance</h3>
+                        <p>Para Adulto</p>
+                        <span class="card-p">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$2555.99</p>
+                    </div>
+                </div>
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="./img/pouchhomemade.jpg" alt="Pouch Homemade Delights">
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Pouch Homemade Delights</h3>
+                        <p>River Salmon Gato Adulto</p>
+                        <span class="card-p">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$1555.99</p>
+                    </div>
+                </div>
+                <div class="card-product">
+                    <div class="container-img">
+                        <img src="./img/sogadenudos.jpg" alt="Soga de nudos">
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h3>Soga de nudos</h3>
+                        <p>Estilo Hueso mordedor</p>
+                        <span class="card-p">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <p class="price">$1220.99</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <a href="https://twitter.com/?lang=es" target="_blank"><img src="./img/twitter.png" alt="Twitter"></a>
+            <a href="https://es-la.facebook.com/" target="_blank"><img src="./img/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="./img/instagram.png" alt="Instagram"></a>
+            <p>© 2023 Tienda de Mascotas Tommy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
