@@ -37,6 +37,24 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: bold; }
 
+#integrante {
+  color: dodgerblue;
+  text-align: center; }
+  #integrante img {
+    height: 200px;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 10px; }
+  #integrante h2 {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 1px #4ea5ed;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px #000;
+    padding: 25px; }
+  #integrante div {
+    margin: 10px;
+    padding: 12px; }
+
 .container {
   max-width: 100rem;
   margin: 0 auto; }
@@ -48,7 +66,7 @@ body {
   margin-bottom: 2.5rem;
   padding: 30px; }
   .inf-categories h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     color: #27476E;
     text-align: center; }
@@ -162,8 +180,7 @@ body {
     .card-product .content-card-product h3 {
       grid-row: 2/3;
       grid-column: 1/-1;
-      font-weight: 400;
-      font-size: 20px;
+      font-size: 10px;
       margin-bottom: 1rem;
       cursor: pointer; }
       .card-product .content-card-product h3:hover {
@@ -186,74 +203,10 @@ body {
       font-size: 1rem; }
 
 .price {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bolder;
-  justify-self: end; }
-
-main {
-  flex: 1; }
-
-
-main {
-  flex: 1; }
-
-.products-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-  .products-container h2 {
-    margin: 15px 15px;
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    color: #27476E;
-    text-align: center;
-    padding: 10px; }
-  .products-container p {
-    text-align: center;
-    font-size: 1em; }
-  .products-container .card {
-    margin: 10px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; }
-    .products-container .card:hover {
-      transform: translateY(-5px); }
-    .products-container .card-title {
-      font-size: 20px;
-      color: #333;
-      text-align: center; }
-    .products-container .card-img-top {
-      text-align: center;
-      width: 270px;
-      height: 250px;
-      object-fit: cover; }
-  .products-container .border-text {
-    font-size: 1.6rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    text-shadow: 2px 2px #44e7cf; }
-  .products-container .card-body {
-    text-align: center; }
-    .products-container .card-body h5 {
-      font-size: 1.2em; }
-    .products-container .card-body .btn {
-      background-color: rgba(231, 206, 244, 0.968);
-      border: solid 1px gray;
-      color: #27476E;
-      padding: 10px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 1em;
-      border-radius: 5px;
-      margin-top: 10px; }
-
+  justify-content: flex-end; }
 
 footer div {
   padding: 10px;
@@ -264,9 +217,21 @@ footer div {
     font-size: 14px;
     text-align: center; }
 
-@media screen and (max-width: 1300px) {
-  .information-store {
-    width: 95vw; } }
+#cartContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightcyan;
+  padding: 20px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  font-size: 15px;
+  color: purple;
+  font-weight: bolder;
+  transition: right 0.3s ease; }
+
+.cart-item {
+  margin-bottom: 20px; }
 
 @media screen and (max-width: 627px) {
   #topbar {
@@ -275,17 +240,15 @@ footer div {
     grid-gap: 20px; } }
 
 @media (max-width: 768px) {
-
-.products-container {
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-  @media (max-width: 768px) {
+  .products-container {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; } }
+  @media (max-width: 768px) and (max-width: 768px) {
     .products-container {
       flex-direction: column;
       align-items: center; } }
-    }
 
 h2 {
   margin: 15px 15px;
@@ -306,8 +269,7 @@ p {
 
 @media (max-width: 767px) {
   section {
-    padding: 10px; }
-}
+    padding: 10px; } }
 
 @media (max-width: 600px) {
   .container-categories {

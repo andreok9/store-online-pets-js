@@ -40,12 +40,6 @@
     padding: 25px;
   }
 
-  h3 {
-    font-size: 1.2rem;
-    text-shadow: 1px 1px black;
-    text-align: center;
-  }
-
   div {
     margin: 10px;
     padding: 12px;
@@ -65,7 +59,7 @@
   padding: 30px;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Poppins', sans-serif;
     color: $titulo_secundario;
     text-align: center;
@@ -213,8 +207,7 @@
     h3 {
       grid-row: 2/3;
       grid-column: 1/-1;
-      font-weight: 400;
-      font-size: 20px;
+      font-size: 10px;
       margin-bottom: 1rem;
       cursor: pointer;
 
@@ -249,8 +242,9 @@
   }
 }
 
-.price {
-  font-size: 1.1rem;
+.price{
+  font-size: 1rem;
   font-weight: bolder;
-  justify-self: end;
+  display: flex;
+  justify-content: flex-end;
 }
