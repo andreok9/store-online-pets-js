@@ -1,0 +1,59 @@
+[
+    {
+      "id": "product1",
+      "name": "Alimento Club Performance",
+      "description": "Para Adulto",
+      "price": 2555.99,
+      "image": "./img/alimentoclubperformance.jpg"
+    },
+    {
+      "id": "product2",
+      "name": "Pouch Homemade Delights",
+      "description": "River Salmon Gato Adulto",
+      "price": 995.99,
+      "image": "./img/pouchhomemade.jpg"
+    },
+    {
+      "id": "product3",
+      "name": "Alimento Club Performance",
+      "description": "Para Adulto",
+      "price": 2555.99,
+      "image": "./img/alimentoclubperformance.jpg"
+    },
+    {
+      "id": "product4",
+      "name": "Pouch Homemade Delights",
+      "description": "River Salmon Gato Adulto",
+      "price": 1555.99,
+      "image": "./img/pouchhomemade.jpg"
+    },
+    {
+      "id": "product5",
+      "name": "Soga de nudos",
+      "description": "Estilo Hueso mordedor",
+      "price": 1220.99,
+      "image": "./img/sogadenudos.jpg"
+    },
+    {
+      "id": "product6",
+      "name": "Soga de nudos",
+      "description": "Estilo Hueso mordedor",
+      "price": 8920.99,
+      "image": "./img/sogadenudos.jpg"
+    },
+    {
+      "id": "product7",
+      "name": "Soga de nudos",
+      "description": "Estilo Hueso mordedor",
+      "price": 1220.99,
+      "image": "./img/sogadenudos.jpg"
+    },
+    {
+      "id": "product8",
+      "name": "Soga de nudos",
+      "description": "Estilo Hueso mordedor",
+      "price": 5420.99,
+      "image": "./img/sogadenudos.jpg"
+    }
+]
+  
