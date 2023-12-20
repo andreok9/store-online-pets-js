@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/estilos.css">
     <title>Tienda Online de Mascotas Tommy - Productos y Servicios para Mascotas</title>
     <meta name="description"
@@ -30,7 +31,6 @@
                 <img src="./img/mascota.png" alt="logo" width="35" height="30" class="d-inline-block align-text-top">
                 Tommy
             </a>
-            <div id="cartContainer"></div>
             <span id="cartIcon"></span>
             <span id="contadorProducts"></span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -139,150 +139,6 @@
                 <span>¡Las mejores Promociones!</span>
             </div>
             <div class="container-products" id="productContainer">
-                <div class="card-product" id="product1">
-                    <div class="container-img">
-                        <img src="./img/alimentoclubperformance.jpg" alt="Alimento Club Performance">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Alimento Club Performance</h3>
-                        <p>Para Adulto</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product1">Agregar al carrito</button>
-                        <p class="price">$2555.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product2">
-                    <div class="container-img">
-                        <img src="./img/pouchhomemade.jpg" alt="Pouch Homemade Delights">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Pouch Homemade Delights</h3>
-                        <p>River Salmon Gato Adulto</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product2">Agregar al carrito</button>
-                        <p class="price">$995.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product3">
-                    <div class="container-img">
-                        <img src="./img/alimentoclubperformance.jpg" alt="Alimento Club Performance">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Alimento Club Performance</h3>
-                        <p>Para Adulto</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product3">Agregar al carrito</button>
-                        <p class="price">$2555.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product4">
-                    <div class="container-img">
-                        <img src="./img/pouchhomemade.jpg" alt="Pouch Homemade Delights">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Pouch Homemade Delights</h3>
-                        <p>River Salmon Gato Adulto</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product4">Agregar al carrito</button>
-                        <p class="price">$1555.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product5">
-                    <div class="container-img">
-                        <img src="./img/sogadenudos.jpg" alt="Soga de nudos">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Soga de nudos</h3>
-                        <p>Estilo Hueso mordedor</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product5">Agregar al carrito</button>
-                        <p class="price">$1220.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product6">
-                    <div class="container-img">
-                        <img src="./img/sogadenudos.jpg" alt="Soga de nudos">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Soga de nudos</h3>
-                        <p>Estilo Hueso mordedor</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product6">Agregar al carrito</button>
-                        <p class="price">$8920.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product7">
-                    <div class="container-img">
-                        <img src="./img/sogadenudos.jpg" alt="Soga de nudos">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Soga de nudos</h3>
-                        <p>Estilo Hueso mordedor</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product7">Agregar al carrito</button>
-                        <p class="price">$1220.99</p>
-                    </div>
-                </div>
-                <div class="card-product" id="product8">
-                    <div class="container-img">
-                        <img src="./img/sogadenudos.jpg" alt="Soga de nudos">
-                    </div>
-                    <div class="contentCardProduct">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h3>Soga de nudos</h3>
-                        <p>Estilo Hueso mordedor</p>
-                        <button class="card-p"><i class="fa-solid fa-basket-shopping"></i></button>
-                        <button class="btnAddCart btn btn-info" dataProductId="product">Agregar al carrito</button>
-                        <p class="price">$5420.99</p>
-                    </div>
-                </div>
             </div>
     </main>
     <footer>
