@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cartIcon = document.getElementById('cartIcon');
-    let cartContainer = createCartContainer();
+    let cartContainerStore = createCartContainer();
     let cartProducts = loadCartFromStorage();
     let checkoutButton = createCheckoutButton();
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function createCartContainer() {
         const container = document.createElement('div');
-        container.id = 'cartContainer';
+        container.id = 'cartContainerStore';
         document.body.appendChild(container);
         return container;
     }
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateCart() {
-        cartContainer.innerHTML = '';
+        cartContainerStore.innerHTML = '';
 
         cartProducts.forEach(product => {
             const productElement = document.createElement('div');
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button class="btnRemoveItem btn btn-outline-primary" data-product-id="${product.id}">X</button>
                 <hr>
             `;
-            cartContainer.appendChild(productElement);
+            cartContainerStore.appendChild(productElement);
         });
 
         if (!checkoutButton) {
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.id = 'checkoutButton';
         button.classList.add('btn', 'btn-primary');
         button.textContent = 'Pagar';
-        cartContainer.appendChild(button);
+        cartContainerStore.appendChild(button);
         updateCheckoutButton(button);
         return button;
     }
