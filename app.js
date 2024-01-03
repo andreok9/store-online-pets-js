@@ -15,10 +15,22 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Error loading products:', error));
     }
+    function showToast(message, type = 'success') {
+        Toastify({
+            text: message,
+            duration: 3000,
+            newWindow: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: type === 'error' ? '#cc0000' : '#6aa84f',
+            stopOnFocus: true,
+        }).showToast();
+    }
 
-	function createCartContainer() {
+    function createCartContainer() {
         const container = document.createElement('div');
         container.id = 'cartContainerStore';
+        container.style.display = 'none';
         document.body.appendChild(container);
         return container;
     }
@@ -101,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         saveCartToStorage();
                         updateCart();
+                        showToast(`${product.name} agregado al carrito`);
                     }
                 }
             });
@@ -114,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         cartProducts.forEach(product => {
             const productElement = document.createElement('div');
-            productElement.classList.add('cart-item');
+            productElement.classList.add('cartItem');
             productElement.innerHTML = `
                 <p>${product.title}</p>
                 <p>Precio: $${product.price.toFixed(2)}</p>
@@ -124,6 +137,12 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
             cartContainerStore.appendChild(productElement);
         });
+
+        if (cartProducts.length > 0) {
+            cartContainerStore.style.display = 'block';
+        } else {
+            cartContainerStore.style.display = 'none';
+        }
 
         if (!checkoutButton) {
             checkoutButton = createCheckoutButton();
@@ -170,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateCheckoutButtonVisibility() {
-        checkoutButton.style.display = cartProducts.length > 0 ? 'block' : 'none';
+        checkoutButton.style.display = cartProducts.length > 0;
         checkoutButton.disabled = cartProducts.length === 0;
     }
 

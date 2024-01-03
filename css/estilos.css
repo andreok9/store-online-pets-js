@@ -217,11 +217,6 @@ footer div {
     font-size: 14px;
     text-align: center; }
 
-.cart-item {
-  margin-bottom: 15px; }
-  .cart-item p {
-    margin: 5px 0; }
-
 .btnRemoveItem {
   background-color: #dc3545;
   color: #fff;
@@ -229,8 +224,27 @@ footer div {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 4px; }
-  .btnRemoveItem:hover {
-    background-color: #c82333; }
+
+#cartContainerStore {
+  padding: 20px;
+  position: fixed;
+  top: 15vh;
+  right: 20px;
+  width: 300px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto; }
+
+.cardItem {
+  width: 200px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
 
 @media screen and (max-width: 627px) {
   #topbar {
