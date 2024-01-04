@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cardNumber = document.getElementById('cardNumber').value;
         const lastCard = cardNumber.slice(-4);
         const fullName = document.getElementById('fullName').value;
-        receiptContainer.textContent = `Cliente: ${fullName} - Tarjeta: XXXXXXXX ${lastCard}`
+        receiptContainer.textContent = `Cliente: ${fullName} - Tarjeta: XXXXXXXX${lastCard}`
         const productsList = document.createElement('ul');
         cartProducts.forEach(product => {
             const productItem = document.createElement('li');
@@ -260,10 +260,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const totalAmount = cartProducts.reduce((total, product) => total + product.quantity * product.price, 0);
-
         const totalElement = document.createElement('p');
         totalElement.innerHTML = `<strong>Total a pagar:</strong> $${totalAmount.toFixed(2)}`;
-
         receiptContainer.appendChild(productsList);
         receiptContainer.appendChild(totalElement);
 
@@ -275,11 +273,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     function completePurchase() {
         setTimeout(() => {
-
-
             Swal.fire({
                 icon: 'success',
                 title: '¡Pago procesado con éxito!',
