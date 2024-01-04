@@ -139,14 +139,8 @@ document.addEventListener('DOMContentLoaded', function () {
             cartContainerStore.appendChild(productElement);
         });
 
-
-        if (cartProducts.length > 0) {
-            cartContainerStore.style.display = 'block';
-            createCheckoutButton();
-        } else {
-            cartContainerStore.style.display = 'none';
-        }
-
+        cartContainerStore.style.display = cartProducts.length > 0 ? 'block' : 'none';
+        createCheckoutButton();
 
         const totalItems = cartProducts.reduce((total, product) => total + product.quantity, 0);
         cartIcon.innerHTML = `<i class="fas fa-shopping-basket"></i> ${totalItems}`;
@@ -176,11 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCheckoutButton(button) {
         button.addEventListener('click', function () {
             saveCartToStorage();
-            updateCart();
         });
-
-    };
-
+    }
 
     function saveCartToStorage() {
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
@@ -201,21 +192,46 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function processPayment() {
-        const spinner = document.createElement('div');
-        spinner.id = 'paymentSpinner';
-        spinner.style.display = 'block';
-        document.body.appendChild(spinner);
+        const cardNumber = document.getElementById('cardNumber').value;
+        const securityCode = document.getElementById('securityCode').value;
+        const expired = document.getElementById('expired').value;
+        const fullName = document.getElementById('fullName').value;
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (cardNumber && securityCode && expired && fullName) {
+            const spinner = document.createElement('div');
+            spinner.id = 'paymentSpinner';
+            spinner.style.display = 'block';
+            document.body.appendChild(spinner);
 
-        spinner.style.display = 'none';
-        await Swal.fire({
-            icon: 'info',
-            title: '¡Procesando tu pago...!',
-            text: 'Un momento',
-            showConfirmButton: false,
-            timer: 3000
-        });
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                spinner.style.display = 'none';
+                Swal.fire({
+                    icon: 'info',
+                    title: '¡Procesando tu pago...!',
+                    text: 'Un momento',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                completePurchase();
+            } catch (error) {
+                console.error('Error al procesar el pago:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un error al procesar el pago. Por favor, inténtalo de nuevo.'
+                });
+                spinner.style.display = 'none';
+            }
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Por favor, completa todos los campos del formulario.'
+            });
+        }
     }
 
     const processPaymentButton = document.getElementById('processPayment');
@@ -228,14 +244,56 @@ document.addEventListener('DOMContentLoaded', function () {
         cartLink.addEventListener('click', openPaymentForm);
     }
 
-    function completePurchase() {
+    function generateReceipt() {
+        const receiptContainer = document.createElement('div');
+        receiptContainer.classList.add('receipt');
+        const cardNumber = document.getElementById('cardNumber').value;
+        const lastCard = cardNumber.slice(-4);
+        const fullName = document.getElementById('fullName').value;
+        receiptContainer.textContent = `Cliente: ${fullName} - Tarjeta: XXXXXXXX ${lastCard}`
+        const productsList = document.createElement('ul');
+        cartProducts.forEach(product => {
+            const productItem = document.createElement('li');
+            productItem.innerHTML = `<strong>${product.title}</strong> - Cantidad: ${product.quantity} - Precio unitario: $${product.price.toFixed(2)} - Subtotal: $${(product.quantity * product.price).toFixed(2)}`;
+            productsList.appendChild(productItem);
+
+        });
+
+        const totalAmount = cartProducts.reduce((total, product) => total + product.quantity * product.price, 0);
+
+        const totalElement = document.createElement('p');
+        totalElement.innerHTML = `<strong>Total a pagar:</strong> $${totalAmount.toFixed(2)}`;
+
+        receiptContainer.appendChild(productsList);
+        receiptContainer.appendChild(totalElement);
+
         Swal.fire({
-            icon: 'success',
-            title: '¡Pago procesado con éxito!',
-            text: 'Gracias por su compra.',
-            showConfirmButton: false,
-            timer: 3000
+            icon: 'info',
+            title: 'Comprobante de Pago',
+            html: receiptContainer,
+            showConfirmButton: true,
         });
     }
+
+
+    function completePurchase() {
+        setTimeout(() => {
+
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Pago procesado con éxito!',
+                text: 'Gracias por su compra.',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            generateReceipt();
+            cartProducts = [];
+            saveCartToStorage();
+            updateCart();
+
+        }, 2000);
+    }
+
 
 });

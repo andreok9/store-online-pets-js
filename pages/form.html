@@ -21,9 +21,40 @@
     <meta name="robots" content="index, follow">
 
 </head>
+
 <body>
+    <header>
+        <p class="btn-warning d-flex justify-content-center text-dark mb-0 p-2 fs-5" id="cupon">¡Completá tus datos y
+            recibí tu
+            cupón de 15% OFF en tu primera compra!</p>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-purple">
+            <a class="navbar-brand text-logo" href="../index.html">
+                <img src="../img/mascota.png" alt="logo" width="35" height="30" class="d-inline-block align-text-top">
+                Tommy
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="./form.html" onclick="openPaymentForm()">
+                            <span id="cartIcon"></span> </a>
+                    </li>
+                    <li>
+                        <span id="contadorProducts"></span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
     <main>
         <div id="paymentForm">
+            <h2>Formulario de pago</h2>
             <label for="cardNumber">Número de tarjeta:</label>
             <input type="text" id="cardNumber" placeholder="Ingrese el número de tarjeta">
             <label for="cardNumber">Código de seguridad:</label>
@@ -33,12 +64,6 @@
             <label for="cardNumber">Nombre y apellido:</label>
             <input type="text" id="fullName" placeholder="Nombre y apellido">
             <button id="processPayment">Procesar Pago</button>
-        </div>
-        <div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="email" placeholder="email" aria-label="email">
-            <button class="btn btn-outline-info" type="button">Suscribete</button>
-        </form>            
         </div>
     </main>
     <footer>
