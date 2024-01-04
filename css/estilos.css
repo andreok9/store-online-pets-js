@@ -208,10 +208,15 @@ body {
   display: flex;
   justify-content: flex-end; }
 
-footer div {
-  padding: 10px;
-  background-color: lightgrey; }
-  footer div p {
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgrey;
+  color: white;
+  text-align: center;
+  padding: 10px; }
+  footer p {
     text-align: center;
     color: #fff;
     font-size: 14px;
@@ -245,6 +250,28 @@ footer div {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+
+#paymentForm {
+  max-width: 400px;
+  margin: 0 auto; }
+  #paymentForm label {
+    display: block;
+    margin-bottom: 8px; }
+  #paymentForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box; }
+  #paymentForm button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; }
+    #paymentForm button:hover {
+      background-color: #45a049; }
 
 @media screen and (max-width: 627px) {
   #topbar {
