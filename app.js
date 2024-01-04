@@ -139,8 +139,16 @@ document.addEventListener('DOMContentLoaded', function () {
             cartContainerStore.appendChild(productElement);
         });
 
-        cartContainerStore.style.display = cartProducts.length > 0 ? 'block' : 'none';
-        createCheckoutButton();
+        if (cartProducts.length > 0) {
+            if (cartContainerStore) {
+                cartContainerStore.style.display = 'block';
+                createCheckoutButton();
+            }
+        } else {
+            if (cartContainerStore) {
+                cartContainerStore.style.display = 'none';
+            }
+        }
 
         const totalItems = cartProducts.reduce((total, product) => total + product.quantity, 0);
         cartIcon.innerHTML = `<i class="fas fa-shopping-basket"></i> ${totalItems}`;
@@ -155,7 +163,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
+    function updateCheckoutButton() {
+        const botonPagar = document.getElementById("checkoutButton");
+        botonPagar.addEventListener('click', function () {
+            if (cartContainerStore) {
+                cartContainerStore.style.display = 'none';
+            }
+        });
+    }
     function createCheckoutButton() {
         const link = document.createElement('a');
         link.id = 'checkoutButton';
@@ -165,12 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
         cartContainerStore.appendChild(link);
         updateCheckoutButton(link);
         return link;
-    }
-
-    function updateCheckoutButton(button) {
-        button.addEventListener('click', function () {
-            saveCartToStorage();
-        });
     }
 
     function saveCartToStorage() {
@@ -184,13 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCart();
 
-    function openPaymentForm() {
-        const paymentForm = document.getElementById('paymentForm');
-        if (paymentForm) {
-            paymentForm.style.display = 'block';
-        }
-    }
-
     async function processPayment() {
         const cardNumber = document.getElementById('cardNumber').value;
         const securityCode = document.getElementById('securityCode').value;
@@ -200,12 +202,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cardNumber && securityCode && expired && fullName) {
             const spinner = document.createElement('div');
             spinner.id = 'paymentSpinner';
-            spinner.style.display = 'block';
             document.body.appendChild(spinner);
 
             try {
                 await new Promise(resolve => setTimeout(resolve, 2000));
-
                 spinner.style.display = 'none';
                 Swal.fire({
                     icon: 'info',
@@ -214,8 +214,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     showConfirmButton: false,
                     timer: 3000
                 });
-
                 completePurchase();
+                
             } catch (error) {
                 console.error('Error al procesar el pago:', error);
                 Swal.fire({
@@ -237,11 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const processPaymentButton = document.getElementById('processPayment');
     if (processPaymentButton) {
         processPaymentButton.addEventListener('click', processPayment);
-    }
-
-    const cartLink = document.getElementById('cartIcon');
-    if (cartLink) {
-        cartLink.addEventListener('click', openPaymentForm);
     }
 
     function generateReceipt() {
@@ -273,6 +268,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function cleanForm() {
+        const paymentForm = document.getElementById('paymentForm');
+        if (paymentForm) {
+            const fieldsForm = paymentForm.querySelectorAll('input');
+            fieldsForm.forEach(field => {
+                field.value = '';
+            });
+        }
+    }
+
     function completePurchase() {
         setTimeout(() => {
             Swal.fire({
@@ -286,9 +291,8 @@ document.addEventListener('DOMContentLoaded', function () {
             cartProducts = [];
             saveCartToStorage();
             updateCart();
-
+            cleanForm();
         }, 2000);
     }
-
 
 });
