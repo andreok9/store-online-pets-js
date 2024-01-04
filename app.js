@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 displayProducts(products);
                 setupProductEventListeners(products);
             })
-            .catch(error => console.error('Error loading products:', error));
+            .catch(error => console.error('Error al agregar el producto:', error));
     }
+
     function showToast(message, type = 'success') {
         Toastify({
             text: message,
@@ -138,16 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
             cartContainerStore.appendChild(productElement);
         });
 
+
         if (cartProducts.length > 0) {
             cartContainerStore.style.display = 'block';
+            createCheckoutButton();
         } else {
             cartContainerStore.style.display = 'none';
         }
 
-        if (!checkoutButton) {
-            checkoutButton = createCheckoutButton();
-        }
-        updateCheckoutButtonVisibility();
 
         const totalItems = cartProducts.reduce((total, product) => total + product.quantity, 0);
         cartIcon.innerHTML = `<i class="fas fa-shopping-basket"></i> ${totalItems}`;
@@ -164,34 +163,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createCheckoutButton() {
-        const button = document.createElement('button');
-        button.id = 'checkoutButton';
-        button.classList.add('btn', 'btn-primary');
-        button.textContent = 'Pagar';
-        cartContainerStore.appendChild(button);
-        updateCheckoutButton(button);
-        return button;
+        const link = document.createElement('a');
+        link.id = 'checkoutButton';
+        link.classList.add('btn', 'btn-primary');
+        link.textContent = 'Pagar';
+        link.setAttribute('href', './pages/form.html');
+        cartContainerStore.appendChild(link);
+        updateCheckoutButton(link);
+        return link;
     }
 
     function updateCheckoutButton(button) {
         button.addEventListener('click', function () {
-            Swal.fire({
-                icon: 'info',
-                title: '¡Compra finalizada!',
-                text: 'Gracias por su compra.',
-                showConfirmButton: false,
-                timer: 2000
-            });
-            cartProducts = [];
             saveCartToStorage();
             updateCart();
         });
-    }
 
-    function updateCheckoutButtonVisibility() {
-        checkoutButton.style.display = cartProducts.length > 0;
-        checkoutButton.disabled = cartProducts.length === 0;
-    }
+    };
+
 
     function saveCartToStorage() {
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
@@ -203,4 +192,50 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     updateCart();
+
+    function openPaymentForm() {
+        const paymentForm = document.getElementById('paymentForm');
+        if (paymentForm) {
+            paymentForm.style.display = 'block';
+        }
+    }
+
+    async function processPayment() {
+        const spinner = document.createElement('div');
+        spinner.id = 'paymentSpinner';
+        spinner.style.display = 'block';
+        document.body.appendChild(spinner);
+
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        spinner.style.display = 'none';
+        await Swal.fire({
+            icon: 'info',
+            title: '¡Procesando tu pago...!',
+            text: 'Un momento',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    }
+
+    const processPaymentButton = document.getElementById('processPayment');
+    if (processPaymentButton) {
+        processPaymentButton.addEventListener('click', processPayment);
+    }
+
+    const cartLink = document.getElementById('cartIcon');
+    if (cartLink) {
+        cartLink.addEventListener('click', openPaymentForm);
+    }
+
+    function completePurchase() {
+        Swal.fire({
+            icon: 'success',
+            title: '¡Pago procesado con éxito!',
+            text: 'Gracias por su compra.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    }
+
 });
